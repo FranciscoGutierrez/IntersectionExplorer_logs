@@ -51,95 +51,98 @@ ls.6users             <- c()
 split.items <- split(items, items$name)
 
 for (users in split.items) {
-    x1agent <- 0 
-    x1agent1Tag  <- 0 
-    x1agent2Tags <- 0 
-    x1agent1User <- 0 
-    x1agentUserTag <- 0 
-    x1agent2Users  <- 0 
-    x1agent2Users1Tag <- 0 
-    x1agent3Users     <- 0 
-    x1agent3Users1Tag <- 0 
-    x2agents <- 0 
-    x2agentsTag <- 0 
-    x2agents2Tags <- 0 
-    x2agents1User <- 0 
-    x2agentsUserTag <- 0 
-    x2agentsUser2Tags <- 0 
-    x2agents2Users <- 0 
-    x2agents3Users <- 0 
-    x2agents4Users <- 0 
-    x2agents5Users <- 0 
-    x3agents <- 0 
-    x3agents1tag   <- 0 
-    x3agents2tags  <- 0 
-    x3agents1user  <- 0 
-    x3agents2users <- 0 
+    x1agent             <- 0 
+    x1agent1Tag         <- 0 
+    x1agent2Tags        <- 0 
+    x1agent1User        <- 0 
+    x1agentUserTag      <- 0 
+    x1agent2Users       <- 0 
+    x1agent2Users1Tag   <- 0 
+    x1agent3Users       <- 0 
+    x1agent3Users1Tag   <- 0 
+    x2agents            <- 0 
+    x2agentsTag         <- 0 
+    x2agents2Tags       <- 0 
+    x2agents1User       <- 0 
+    x2agentsUserTag     <- 0 
+    x2agentsUser2Tags   <- 0 
+    x2agents2Users      <- 0 
+    x2agents3Users      <- 0 
+    x2agents4Users      <- 0 
+    x2agents5Users      <- 0 
+    x3agents            <- 0 
+    x3agents1tag        <- 0 
+    x3agents2tags       <- 0 
+    x3agents1user       <- 0 
+    x3agents2users      <- 0 
     x3agents2users1tag  <- 0 
     x3agents2users3tags <- 0 
-    x3agents3users <- 0 
-    x3agents3users1tag <- 0 
-    x3agents4users <- 0 
-    x3agents5users <- 0 
-    x3agents6users <- 0 
-    x4agents <- 0 
-    x1tag    <- 0 
-    x2tags   <- 0 
-    x1user   <- 0 
-    x2users  <- 0 
-    x3users  <- 0 
-    x4users  <- 0 
-    x5users  <- 0 
-    x6users  <- 0 
+    x3agents3users      <- 0 
+    x3agents3users1tag  <- 0 
+    x3agents4users      <- 0 
+    x3agents5users      <- 0 
+    x3agents6users      <- 0 
+    x4agents            <- 0 
+    x1tag               <- 0 
+    x2tags              <- 0 
+    x1user              <- 0 
+    x2users             <- 0 
+    x3users             <- 0 
+    x4users             <- 0 
+    x5users             <- 0 
+    x6users             <- 0 
     # name, time, agent, user, tag, items
     for (i in 1:nrow(users)) {
-        a    <- users$agent[i] # [a]gent
-        u    <- users$user[i]  # [u]ser
-        t    <- users$tag[i]   # [t]ag
-        i    <- users$items[i] # [i]tems
-        name <- users$name[1]  # name
+        
+        agent <- users$agent[i] # agent
+        user  <- users$user[i]  # user
+        tag   <- users$tag[i]   # tag
+        item  <- users$items[i] # items
+        name  <- users$name[1]  # name
+        
         # So many posibilities 
-        if ((a == 1) & (u == 0) & (t == 0)) x1agent             <- i + x1agent
-        if ((a == 1) & (u == 0) & (t == 1)) x1agent1Tag         <- i + x1agent1Tag
-        if ((a == 1) & (u == 0) & (t == 2)) x1agent2Tags        <- i + x1agent2Tags
-        if ((a == 1) & (u == 1) & (t == 0)) x1agent1User        <- i + x1agent1User
-        if ((a == 1) & (u == 1) & (t == 1)) x1agentUserTag      <- i + x1agentUserTag
-        if ((a == 1) & (u == 2) & (t == 0)) x1agent2Users       <- i + x1agent2Users 
-        if ((a == 1) & (u == 2) & (t == 1)) x1agent2Users1Tag   <- i + x1agent2Users1Tag
-        if ((a == 1) & (u == 3) & (t == 0)) x1agent3Users       <- i + x1agent3Users    
-        if ((a == 1) & (u == 3) & (t == 1)) x1agent3Users1Tag   <- i + x1agent3Users1Tag
-        if ((a == 2) & (u == 0) & (t == 0)) x2agents            <- i + x2agents
-        if ((a == 2) & (u == 0) & (t == 1)) x2agentsTag         <- i + x2agentsTag
-        if ((a == 2) & (u == 0) & (t == 2)) x2agents2Tags       <- i + x2agents2Tags
-        if ((a == 2) & (u == 1) & (t == 0)) x2agents1User       <- i + x2agents1User
-        if ((a == 2) & (u == 1) & (t == 1)) x2agentsUserTag     <- i + x2agentsUserTag
-        if ((a == 2) & (u == 1) & (t == 2)) x2agentsUser2Tags   <- i + x2agentsUser2Tags
-        if ((a == 2) & (u == 2) & (t == 0)) x2agents2Users      <- i + x2agents2Users
-        if ((a == 2) & (u == 3) & (t == 0)) x2agents3Users      <- i + x2agents3Users
-        if ((a == 2) & (u == 4) & (t == 0)) x2agents4Users      <- i + x2agents4Users
-        if ((a == 2) & (u == 5) & (t == 0)) x2agents5Users      <- i + x2agents5Users
-        if ((a == 3) & (u == 0) & (t == 0)) x3agents            <- i + x3agents
-        if ((a == 3) & (u == 0) & (t == 1)) x3agents1tag        <- i + x3agents1tag  
-        if ((a == 3) & (u == 0) & (t == 2)) x3agents2tags       <- i + x3agents2tags 
-        if ((a == 3) & (u == 1) & (t == 0)) x3agents1user       <- i + x3agents1user 
-        if ((a == 3) & (u == 2) & (t == 0)) x3agents2users      <- i + x3agents2users
-        if ((a == 3) & (u == 2) & (t == 1)) x3agents2users1tag  <- i + x3agents2users1tag 
-        if ((a == 3) & (u == 2) & (t == 3)) x3agents2users3tags <- i + x3agents2users3tags
-        if ((a == 3) & (u == 3) & (t == 0)) x3agents3users      <- i + x3agents3users
-        if ((a == 3) & (u == 3) & (t == 1)) x3agents3users1tag  <- i + x3agents3users1tag
-        if ((a == 3) & (u == 4) & (t == 0)) x3agents4users      <- i + x3agents4users
-        if ((a == 3) & (u == 5) & (t == 0)) x3agents5users      <- i + x3agents5users
-        if ((a == 3) & (u == 6) & (t == 0)) x3agents6users      <- i + x3agents6users
-        if ((a == 4) & (u == 0) & (t == 0)) x4agents            <- i + x4agents
-        if ((a == 0) & (u == 0) & (t == 1)) x1tag               <- i + x1tag 
-        if ((a == 0) & (u == 0) & (t == 2)) x2tags              <- i + x2tags
-        if ((a == 0) & (u == 1) & (t == 0)) x1user              <- i + x1user
-        if ((a == 0) & (u == 2) & (t == 0)) x2users             <- i + x2users
-        if ((a == 0) & (u == 3) & (t == 0)) x3users             <- i + x3users
-        if ((a == 0) & (u == 4) & (t == 0)) x4users             <- i + x4users
-        if ((a == 0) & (u == 5) & (t == 0)) x5users             <- i + x5users
-        if ((a == 0) & (u == 6) & (t == 0)) x6users             <- i + x6users
+        if ((agent == 1) & (user == 0) & (tag == 0)) x1agent             <- item + x1agent
+        if ((agent == 1) & (user == 0) & (tag == 1)) x1agent1Tag         <- item + x1agent1Tag
+        if ((agent == 1) & (user == 0) & (tag == 2)) x1agent2Tags        <- item + x1agent2Tags
+        if ((agent == 1) & (user == 1) & (tag == 0)) x1agent1User        <- item + x1agent1User
+        if ((agent == 1) & (user == 1) & (tag == 1)) x1agentUserTag      <- item + x1agentUserTag
+        if ((agent == 1) & (user == 2) & (tag == 0)) x1agent2Users       <- item + x1agent2Users 
+        if ((agent == 1) & (user == 2) & (tag == 1)) x1agent2Users1Tag   <- item + x1agent2Users1Tag
+        if ((agent == 1) & (user == 3) & (tag == 0)) x1agent3Users       <- item + x1agent3Users    
+        if ((agent == 1) & (user == 3) & (tag == 1)) x1agent3Users1Tag   <- item + x1agent3Users1Tag
+        if ((agent == 2) & (user == 0) & (tag == 0)) x2agents            <- item + x2agents
+        if ((agent == 2) & (user == 0) & (tag == 1)) x2agentsTag         <- item + x2agentsTag
+        if ((agent == 2) & (user == 0) & (tag == 2)) x2agents2Tags       <- item + x2agents2Tags
+        if ((agent == 2) & (user == 1) & (tag == 0)) x2agents1User       <- item + x2agents1User
+        if ((agent == 2) & (user == 1) & (tag == 1)) x2agentsUserTag     <- item + x2agentsUserTag
+        if ((agent == 2) & (user == 1) & (tag == 2)) x2agentsUser2Tags   <- item + x2agentsUser2Tags
+        if ((agent == 2) & (user == 2) & (tag == 0)) x2agents2Users      <- item + x2agents2Users
+        if ((agent == 2) & (user == 3) & (tag == 0)) x2agents3Users      <- item + x2agents3Users
+        if ((agent == 2) & (user == 4) & (tag == 0)) x2agents4Users      <- item + x2agents4Users
+        if ((agent == 2) & (user == 5) & (tag == 0)) x2agents5Users      <- item + x2agents5Users
+        if ((agent == 3) & (user == 0) & (tag == 0)) x3agents            <- item + x3agents
+        if ((agent == 3) & (user == 0) & (tag == 1)) x3agents1tag        <- item + x3agents1tag  
+        if ((agent == 3) & (user == 0) & (tag == 2)) x3agents2tags       <- item + x3agents2tags 
+        if ((agent == 3) & (user == 1) & (tag == 0)) x3agents1user       <- item + x3agents1user 
+        if ((agent == 3) & (user == 2) & (tag == 0)) x3agents2users      <- item + x3agents2users
+        if ((agent == 3) & (user == 2) & (tag == 1)) x3agents2users1tag  <- item + x3agents2users1tag 
+        if ((agent == 3) & (user == 2) & (tag == 3)) x3agents2users3tags <- item + x3agents2users3tags
+        if ((agent == 3) & (user == 3) & (tag == 0)) x3agents3users      <- item + x3agents3users
+        if ((agent == 3) & (user == 3) & (tag == 1)) x3agents3users1tag  <- item + x3agents3users1tag
+        if ((agent == 3) & (user == 4) & (tag == 0)) x3agents4users      <- item + x3agents4users
+        if ((agent == 3) & (user == 5) & (tag == 0)) x3agents5users      <- item + x3agents5users
+        if ((agent == 3) & (user == 6) & (tag == 0)) x3agents6users      <- item + x3agents6users
+        if ((agent == 4) & (user == 0) & (tag == 0)) x4agents            <- item + x4agents
+        if ((agent == 0) & (user == 0) & (tag == 1)) x1tag               <- item + x1tag 
+        if ((agent == 0) & (user == 0) & (tag == 2)) x2tags              <- item + x2tags
+        if ((agent == 0) & (user == 1) & (tag == 0)) x1user              <- item + x1user
+        if ((agent == 0) & (user == 2) & (tag == 0)) x2users             <- item + x2users
+        if ((agent == 0) & (user == 3) & (tag == 0)) x3users             <- item + x3users
+        if ((agent == 0) & (user == 4) & (tag == 0)) x4users             <- item + x4users
+        if ((agent == 0) & (user == 5) & (tag == 0)) x5users             <- item + x5users
+        if ((agent == 0) & (user == 6) & (tag == 0)) x6users             <- item + x6users
     }  
+    
     ls.names              <- c(ls.names,              toString(name))
     ls.1agent             <- c(ls.1agent,             x1agent)
     ls.1agent1Tag         <- c(ls.1agent1Tag,         x1agent1Tag) 
