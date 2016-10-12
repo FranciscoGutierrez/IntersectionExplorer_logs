@@ -50,7 +50,7 @@ ls.6users             <- c()
 
 split.bookmarks <- split(bookmarks, bookmarks$name)
 
-for (users in split.bookmarks){
+for (users in split.bookmarks) {
     x1agent             <- 0 
     x1agent1Tag         <- 0 
     x1agent2Tags        <- 0 
@@ -98,7 +98,7 @@ for (users in split.bookmarks){
         agent <- users$agent[i] # agent
         user  <- users$user[i]  # user
         tag   <- users$tag[i]   # tag
-        name <- users$name[1]  # name
+        name  <- users$name[1]  # name
         
         if ((agent == 1) & (user == 0) & (tag == 0)) x1agent             <- x1agent             + 1
         if ((agent == 1) & (user == 0) & (tag == 1)) x1agent1Tag         <- x1agent1Tag         + 1
